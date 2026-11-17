@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Usage Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div>
+                <h1>AI Usage Tracker</h1>
+                <p>Ask AI, track tokens, latency and API cost.</p>
+            </div>
+            <span class="status">● API Dashboard</span>
+        </header>
+
+        <main>
+
+            <section class="chat-card">
+
+                <h2>Ask AI Anything</h2>
+
+                <textarea
+                    id="question"
+                    placeholder="Enter your question here..."
+                ></textarea>
+
+                <div class="buttons">
+                    <button id="askBtn" onclick="askAI()">
+                        Ask AI
+                    </button>
+
+                    <button id="streamBtn" onclick="streamAI()">
+                        Stream Response
+                    </button>
+                </div>
+
+                <div id="loading" class="loading hidden">
+                    Processing your question...
+                </div>
+
+                <div class="answer-section">
+                    <h3>AI Response</h3>
+                    <div id="answer">
+                        Your AI response will appear here.
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="metrics">
+
+                <h2>API Usage Analytics</h2>
+
+                <div class="metric-grid">
+
+                    <div class="metric-card">
+                        <p>Input Tokens</p>
+                        <h2 id="inputTokens">0</h2>
+                    </div>
+
+                    <div class="metric-card">
+                        <p>Output Tokens</p>
+                        <h2 id="outputTokens">0</h2>
+                    </div>
+
+                    <div class="metric-card">
+                        <p>Total Tokens</p>
+                        <h2 id="totalTokens">0</h2>
+                    </div>
+
+                    <div class="metric-card">
+                        <p>Latency</p>
+                        <h2 id="latency">0 s</h2>
+                    </div>
+
+                    <div class="metric-card cost-card">
+                        <p>Estimated API Cost</p>
+                        <h2 id="cost">$0.000000</h2>
+                    </div>
+
+                </div>
+
+                <p class="note">
+                    Token and cost metrics update after a normal
+                    AI response. Streaming currently displays text
+                    chunks only.
+                </p>
+
+            </section>
+
+        </main>
+
+        <footer>
+            AI Usage Tracker | Python + FastAPI + OpenAI
+        </footer>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
